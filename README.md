@@ -89,7 +89,6 @@ src/
 - Monthly Budget Tracking
 - Budget Goal Monitoring
 - AI-based Spending Insights
-- Expense Prediction & Trend Analysis
 - Export Reports (PDF/Excel)
 - Advanced Financial Analytics
 
