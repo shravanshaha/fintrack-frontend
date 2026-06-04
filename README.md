@@ -1,20 +1,34 @@
 # FinTrack Frontend
 
-React frontend for the FinTrack Personal Finance Management Application.
+A modern Personal Finance Management Application built using React that helps users track income, expenses, categories, and transactions through an interactive dashboard.
 
 ## Features
 
+- User Registration
 - User Login & Logout
 - Protected Routes
-- Dashboard Summary
-- Income Tracking
-- Expense Tracking
+- Dashboard Summary Cards
+- Income & Expense Tracking
 - Category Management
 - Transaction Management
 - Transaction Search
 - Date Range Filtering
-- Category-wise Expense Reports
-- Responsive Dashboard UI
+- Category-wise Expense Analytics
+- Financial Insights Dashboard
+- Interactive Pie Charts using Chart.js
+- Responsive User Interface
+
+## Dashboard Analytics
+
+The dashboard provides:
+
+- Total Income
+- Total Expense
+- Current Balance
+- Highest Spending Category
+- Expense Ratio Analysis
+- Transaction Statistics
+- Category-wise Expense Distribution
 
 ## Tech Stack
 
@@ -23,10 +37,12 @@ React frontend for the FinTrack Personal Finance Management Application.
 - React.js
 - React Router DOM
 - Axios
+- Chart.js
+- React ChartJS 2
 - Vite
 - CSS3
 
-### Backend Integration
+### Backend
 
 - Java Servlets
 - JDBC
@@ -36,24 +52,46 @@ React frontend for the FinTrack Personal Finance Management Application.
 ## Project Structure
 
 src/
+
 ├── components/
+
 ├── pages/
+
 ├── services/
+
 └── App.jsx
 
-## Screens
+## Screenshots
 
-- Login Page
-- Dashboard
-- Categories
-- Transactions
+### Login Page
+
+![Login](./screenshots/Login.png)
+
+### User Registration
+
+![Register User](./screenshots/RegisterUser.png)
+
+### Dashboard
+
+![Dashboard](./screenshots/Dashboard.png)
+
+### Categories
+
+![Categories](./screenshots/Categories.png)
+
+### Transactions
+
+![Transactions](./screenshots/Transactions.png)
 
 ## Future Enhancements
 
-- Expense Analytics Charts
-- Monthly Reports
-- Export Features
-- Improved Dashboard Visualizations
+- Loan & Lending Management
+- Monthly Budget Tracking
+- Budget Goal Monitoring
+- AI-based Spending Insights
+- Expense Prediction & Trend Analysis
+- Export Reports (PDF/Excel)
+- Advanced Financial Analytics
 
 ## Author
 

@@ -1,13 +1,15 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
-
 import api from "../services/api";
 
 function Navbar() {
   const navigate = useNavigate();
-
   const location = useLocation();
 
-  if (location.pathname === "/" || location.pathname === "/login") {
+  if (
+    location.pathname === "/" ||
+    location.pathname === "/login" ||
+    location.pathname === "/register"
+  ) {
     return null;
   }
 

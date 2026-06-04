@@ -247,3 +247,70 @@ button:hover {
   background: #fee2e2;
   color: #b91c1c;
 }
+
+.insight-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.insight-card {
+  flex: 1;
+  min-width: 220px;
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+}
+
+.insight-card h4 {
+  color: #64748b;
+  margin-bottom: 10px;
+}
+
+.insight-card h3 {
+  color: #0f172a;
+}
+/* Login Page */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+    135deg,
+    #f8fafc,
+    #e2e8f0
+  );
+}
+
+.login-container {
+  width: 420px;
+
+  background: white;
+
+  padding: 40px;
+
+  border-radius: 20px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.login-container h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #0f172a;
+}
+
+.login-container input {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.login-container button {
+  width: 100%;
+  margin-top: 10px;
+}
