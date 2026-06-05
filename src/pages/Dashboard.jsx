@@ -3,6 +3,7 @@ import api from "../services/api";
 import ExpenseChart from "../components/ExpenseChart";
 
 function Dashboard() {
+  const userId = sessionStorage.getItem("userId");
   const [income, setIncome] = useState("0");
   const [expense, setExpense] = useState("0");
   const [balance, setBalance] = useState("0");
@@ -22,7 +23,9 @@ function Dashboard() {
 
   const fetchSummary = async () => {
     try {
-      const response = await api.get("/dashboard?action=summary");
+      const response = await api.get(
+        `/dashboard?action=summary&userId=${userId}`
+      );
 
       const data = response.data.split("\n");
 
@@ -43,7 +46,9 @@ function Dashboard() {
 
   const fetchRecentTransactions = async () => {
     try {
-      const response = await api.get("/dashboard?action=recent");
+      const response = await api.get(
+        `/dashboard?action=recent&userId=${userId}`
+      );
 
       const rows = response.data.split("\n").filter((row) => row.trim() !== "");
 
@@ -56,8 +61,9 @@ function Dashboard() {
 
   const fetchCategoryReport = async () => {
     try {
-      const response = await api.get("/dashboard?action=categoryReport");
-
+      const response = await api.get(
+        `/dashboard?action=categoryReport&userId=${userId}`
+      );
       const rows = response.data.split("\n").filter((row) => row.trim() !== "");
 
       setCategoryReport(rows);
