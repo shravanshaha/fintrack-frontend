@@ -15,14 +15,20 @@ function Login() {
         `/auth?action=login&email=${email}&password=${password}`
       );
 
-      setMessage(response.data);
-
-      if (response.data.includes("Login Successful")) {
+      if (response.data.success) {
         sessionStorage.setItem("loggedIn", "true");
+
+        sessionStorage.setItem("userId", response.data.userId);
+
+        sessionStorage.setItem("userName", response.data.name);
+
         navigate("/dashboard");
+      } else {
+        setMessage("Invalid Credentials");
       }
     } catch (err) {
       console.log(err);
+
       setMessage(err.toString());
     }
   };

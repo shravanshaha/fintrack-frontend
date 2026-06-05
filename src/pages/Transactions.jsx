@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../services/api";
 
 function Transactions() {
+  const userId = sessionStorage.getItem("userId");
   const [transactions, setTransactions] = useState([]);
   const [categories, setCategories] = useState([]);
 
@@ -25,7 +26,9 @@ function Transactions() {
 
   const fetchTransactions = async () => {
     try {
-      const response = await api.get("/transaction?action=list");
+      const response = await api.get(
+        `/transaction?action=list&userId=${userId}`
+      );
 
       const rows = response.data.split("\n").filter((row) => row.trim() !== "");
 
@@ -37,7 +40,7 @@ function Transactions() {
 
   const fetchCategories = async () => {
     try {
-      const response = await api.get("/category?action=list");
+      const response = await api.get(`/category?action=list&userId=${userId}`);
 
       const rows = response.data.split("\n").filter((row) => row.trim() !== "");
 
@@ -50,7 +53,7 @@ function Transactions() {
   const addTransaction = async () => {
     try {
       const response = await api.get(
-        `/transaction?action=create&categoryId=${categoryId}&amount=${amount}&type=${type}&note=${note}&date=${date}`
+        `/transaction?action=create&userId=${userId}&categoryId=${categoryId}&amount=${amount}&type=${type}&note=${note}&date=${date}`
       );
 
       setMessage(response.data);
@@ -68,7 +71,9 @@ function Transactions() {
 
   const deleteTransaction = async (id) => {
     try {
-      const response = await api.get(`/transaction?action=delete&id=${id}`);
+      const response = await api.get(
+        `/transaction?action=delete&id=${id}&userId=${userId}`
+      );
 
       setMessage(response.data);
 
@@ -81,7 +86,7 @@ function Transactions() {
   const searchTransactions = async () => {
     try {
       const response = await api.get(
-        `/transaction?action=search&keyword=${keyword}`
+        `/transaction?action=search&keyword=${keyword}&userId=${userId}`
       );
 
       const rows = response.data.split("\n").filter((row) => row.trim() !== "");
@@ -95,7 +100,7 @@ function Transactions() {
   const filterByDate = async () => {
     try {
       const response = await api.get(
-        `/transaction?action=daterange&start=${startDate}&end=${endDate}`
+        `/transaction?action=daterange&start=${startDate}&end=${endDate}&userId=${userId}`
       );
 
       const rows = response.data.split("\n").filter((row) => row.trim() !== "");

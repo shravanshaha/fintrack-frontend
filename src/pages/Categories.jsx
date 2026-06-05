@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../services/api";
 
 function Categories() {
+  const userId = sessionStorage.getItem("userId");
   const [categories, setCategories] = useState([]);
   const [name, setName] = useState("");
   const [type, setType] = useState("EXPENSE");
@@ -13,7 +14,7 @@ function Categories() {
 
   const fetchCategories = async () => {
     try {
-      const response = await api.get("/category?action=list");
+      const response = await api.get(`/category?action=list&userId=${userId}`);
 
       const rows = response.data.split("\n").filter((row) => row.trim() !== "");
 
@@ -26,7 +27,7 @@ function Categories() {
   const addCategory = async () => {
     try {
       const response = await api.get(
-        `/category?action=create&name=${name}&type=${type}`
+        `/category?action=create&name=${name}&type=${type}&userId=${userId}`
       );
 
       setMessage(response.data);
@@ -41,7 +42,9 @@ function Categories() {
 
   const deleteCategory = async (id) => {
     try {
-      const response = await api.get(`/category?action=delete&id=${id}`);
+      const response = await api.get(
+        `/category?action=delete&id=${id}&userId=${userId}`
+      );
 
       setMessage(response.data);
 
